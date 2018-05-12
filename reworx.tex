@@ -1,0 +1,250 @@
+\documentclass[11pt,a4paper,twoside]{article}
+
+% LaTeX-Umsetzung der "Richtlinien für Projekt- und Diplomarbeiten"
+% der LFE Medieninformatik, LMU München. (Autor: Richard Atterer, 27.9.2006, 23.10.2007), Bug-Fixing Mark Kaczkowski (23.6.2008)
+
+\usepackage[T1]{fontenc} % sonst geht \hyphenation nicht mit Umlauten
+\usepackage[latin1]{inputenc} % man kann schreiben äöüß, statt "a"o"u"s
+%\usepackage[utf8]{inputenc} % wie oben, aber UTF-8 als Encoding statt ISO-8859-1 (latin1)
+\usepackage[ngerman,english]{babel} % deutsche Trennregeln, "Inhaltsverzeichnis" etc.
+%\usepackage{ngerman} % Alternative zum Babel-Paket oben
+\usepackage{mathptmx} % Times-Roman-Schrift (auch für mathematische Formeln)
+
+% Zum Setzen von URLs
+\usepackage{color}
+\definecolor{darkred}{rgb}{.25,0,0}
+\definecolor{darkgreen}{rgb}{0,.2,0}
+\definecolor{darkmagenta}{rgb}{.2,0,.2}
+\definecolor{darkcyan}{rgb}{0,.15,.15}
+\usepackage[plainpages=false,bookmarks=true,bookmarksopen=true,colorlinks=true,
+  linkcolor=darkred,citecolor=darkgreen,filecolor=darkmagenta,
+  menucolor=darkred,urlcolor=darkcyan]{hyperref}
+
+% pdflatex: Bilder in den Formaten .jpeg, .png und .pdf
+% latex: Bilder im .eps-Format
+\usepackage{graphicx}
+
+\usepackage{fancyhdr} % Positionierung der Seitenzahlen
+\fancyhead[LE,RO,LO,RE]{}
+\fancyfoot[CE,CO,RE,LO]{}
+\fancyfoot[LE,RO]{\Roman{page}}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{13.6pt} % behebt headheight Warning
+
+% Korrektes Format für Nummerierung von Abbildungen (figure) und
+% Tabellen (table): <Kapitelnummer>.<Abbildungsnummer>
+\makeatletter
+\@addtoreset{figure}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\@addtoreset{table}{section}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\makeatother
+
+\sloppy % Damit LaTeX nicht so viel über "overfull hbox" u.Ä. meckert
+
+% Ränder
+\addtolength{\topmargin}{-16mm}
+\setlength{\oddsidemargin}{25mm}
+\setlength{\evensidemargin}{35mm}
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\textwidth}{15cm}
+\addtolength{\textheight}{34mm}
+%______________________________________________________________________
+
+\begin{document}
+
+\pagestyle{empty} % Vorerst keine Seitenzahlen
+\pagenumbering{alph} % Unsichtbare alphabetische Nummerierung
+
+\begin{center}
+\textsc{Ludwig-Maximilians-Universität München}\\
+Department ``Institut für Informatik''\\
+Lehr- und Forschungseinheit Medieninformatik\\
+Prof.\ Dr.\ Heinrich Hußmann
+
+\vspace{5cm}
+{\large\textbf{Bachelorarbeit}}\vspace{.5cm}
+
+{\LARGE \LaTeX-Vorlage für Projekt- und Diplomarbeiten}\vspace{1cm}
+
+{\large Felix Hamann}\\\href{mailto:kontakt@felixhamann.de}{kontakt@felixhamann.de}
+
+\end{center}
+\vfill
+
+\begin{tabular}{ll}
+Bearbeitungszeitraum: & 1. 5. 2018 bis 31. 8. 2018\\
+Betreuer: & Mohammed Khamis\\
+Externer Betreuer: & Dr. Steffen Jost\\
+Verantw. Hochschullehrer: & Prof. Hußmann
+\end{tabular}
+%______________________________________________________________________
+
+\clearpage
+\section*{Zusammenfassung}
+
+Ziel dieser Bachelorarbeit war die Implementierung eines neuen UniWorX für die Studenten der LMU
+
+\selectlanguage{english}
+\section*{Abstract}
+
+See above. Use Google Translator.
+
+\selectlanguage{ngerman}
+\clearpage
+\section*{Aufgabenstellung}
+
+(Kopie der Original-Aufgabenstellung)
+
+TODO: Jost fragen? Khamis fragen?
+
+
+\vfill % Sorgt dafür, dass das Folgende an das Seitenende rutscht
+
+\noindent Ich erkläre hiermit, dass ich die vorliegende Arbeit
+selbstständig angefertigt, alle Zitate als solche kenntlich gemacht
+sowie alle benutzten Quellen und Hilfsmittel angegeben habe.
+
+\bigskip\noindent München, \today
+
+\vspace{4ex}\noindent\makebox[7cm]{\dotfill}
+
+%______________________________________________________________________
+
+\cleardoublepage
+\pagestyle{fancy}
+\pagenumbering{roman} % Römische Seitenzahlen
+\setcounter{page}{1}
+
+% Inhaltsverzeichnis erzeugen
+\tableofcontents
+
+%Abbildungsverzeichnis erzeugen - normalerweise nicht nötig
+%\cleardoublepage
+%\listoffigures
+%______________________________________________________________________
+
+\cleardoublepage
+
+% Arabische Seitenzahlen
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% Geändertes Format für Seitenränder, arabische Seitenzahlen
+\fancyhead[LE,RO]{\rightmark}
+\fancyhead[LO,RE]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
+
+\section{Einleitung}
+
+Die Ludwig-Maximilians-Universität München benutzt seit mehreren Jahren (Wie lange?) eine Online-Plattform namens Uniworx um die Abgaben, Klausuranmeldungen und Übungsgruppen der (Medien-/Wirtschaft-)Informatik-Studenten zu organisieren.
+
+Die 1. Version von \textbf{UniWorX} entstand im Rahmen einer Bachelorarbeit (Stimmt? Quelle?) und erfüllte x Jahre ihren Zweck. Nach diesen x Jahren wurde sie in wenigen Nächten von MANFRED MUSTERMAX neu geschrieben, da die 1. Implementierung sich als nicht mehr wartbar erwies und obligatorische Zusatzfeatures nicht implementiert werden konnten.
+
+Die zweite Version ist in PERL geschrieben und diente als große Inspiration für die Neuimplementierung die in dieser Arbeit thematisiert werden soll.
+
+Es soll einerseits auf die technischen Aspekte der neuen Version "ReWorX", als auch auf die HCI\footnote{Human-Computer-Interaktion}-Aspekte einer solchen Plattform. In \autoref{sec:implementation} wird näher auf die Details der Implemntierung eingegangen.
+\autoref{sec:userstudies} wird sich mit den Usuability-Studien befassen, die im Rahmen dieser Arbeit durchgeführt wurden. Die Aufgaben in dieser Arbeit waren sehr unterschiedlich:
+
+\begin{enumerate}
+  \item Es bedurfte einer gründlichen Analyse des bestehenden Systems in Bezug auf User-Flows\footnote{Benutzerführung auf der Website}
+  \item Es musste festegestellt werden welche der bestehenden Seiten wirklich nötig waren und welche womögloich abgekürzt werden könnten (durch hover-Menüs, reine Anwendung gestatlertischer Merkmale wie Fitt'S Law).
+\end{enumerate}
+
+
+\cleardoublepage % Neue rechte Seite anfangen
+\section{Mobile First}
+
+90\% of the orders AliBaba\footnote{chinese online discount retail} received during their 2018 chinese-new-year promotion campaign where placed from mobile devices (CITE!).
+This is still far from the internet usage on mobile-devices in central europe, where (according to NAMEDROPPING) around 60\% of all page views came from users on mobile devices (phones / tablets).
+
+\subsection{Mobile Website vs. Responsive Design}
+
+Zwei Teile blabla
+
+\subsection{Implementierung} \label{sec:implementation}
+
+\subsection{Benutzer-Studien} \label{sec:userstudies}
+
+\begin{figure}%[btph]
+  %% Datei ``beispielbild.eps'' oder ``beispielbild.png'', zentriert
+  %\begin{center}\includegraphics{beispielbild}\end{center}
+
+  %% Datei auf 8cm Breite verkleinert/vergrößert
+  %\includegraphics[width=8cm]{beispielbild}
+  %% Datei auf ganze Breite des Texts vergrößert
+  %\includegraphics[width=\columnwidth]{beispielbild}
+  %% Datei auf 60% der Textbreite verkleinert/vergrößert
+  %\includegraphics[width=.6\columnwidth]{beispielbild}
+  %% Weitere Optionen (Ausschnitt, drehen etc.) in der Doku zum graphicx-Paket
+
+  \begin{center}\LARGE [BILD]\end{center}
+  \caption{Bildunterschrift}
+  \label{fig:beispielbild}
+\end{figure}
+
+
+Siehe Abbildung \ref{fig:beispielbild} oder einschlägige Literatur, z.B.
+\cite{sengel-usability}.
+
+\bigskip % Größerer Abstand zum vorherigen Absatz
+\textbf{Hinweis:} Die Verweise im generierten PDF (HTTP-Links, Verweise auf Kapitel oder Bilder) sind leicht eingefärbt. Wer das nicht will, z.B. weil es die Druckkosten erhöht, kann am Anfang des Dokuments \texttt{linkcolor} usw. auf ``black'' setzen.
+
+
+\subsection{Medien}
+
+\begin{figure}
+  \begin{center}\LARGE [BILD]\end{center}
+  \caption{Noch ein Bild}
+  \label{fig:beispielbild2}
+\end{figure}
+
+\begin{itemize}
+  \item Gesellschaftliche Medien
+  \item Technische Medien
+\end{itemize}
+
+
+\subsection{Informatik}
+
+
+\subsection{Medieninformatik}
+
+\begin{description}
+  \item[Medienwirkung:] Ein Spezialfach der Kommunikationswissenschaft. Für das erfolgreiche Studium des Anwendungsfachs Mediengestaltung ist eine künstlerische Begabung erforderlich.
+  \item[Medienwirtschaft:] Ein Spezialfach der Betriebswirtschaftslehre
+  \item[Mediengestaltung:] Ein Spezialfach der Kunstwissenschaft
+\end{description}
+
+\subsubsection{Was Sie schon immer wissen wollten, aber nie zu fragen
+  wagten}
+
+\paragraph{Überschrift}
+Diese Überschrift erscheint fettgedruckt am Anfang des Absatzes.
+
+\subsubsection{Was Sie nicht wissen wollten}
+
+Text text textextext\footnote{Oder so ähnlich}.
+
+%\_____________________________________________________________________
+
+\cleardoublepage
+\section{Zusammenfassung}
+
+\begin{figure}
+  \begin{center}\LARGE [BILD]\end{center}
+  \caption{Bild}
+  \label{fig:beispielbild3}
+\end{figure}
+%______________________________________________________________________
+
+\cleardoublepage
+\fancyhead[LE,RO,LO,RE]{} % Keine Kopfzeile mehr oben auf jeder Seite
+\section*{Inhalt der beigelegten CD}
+%______________________________________________________________________
+
+\cleardoublepage
+\bibliographystyle{unsrt}
+\bibliography{literature}
+
+\end{document}
