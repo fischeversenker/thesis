@@ -10,6 +10,9 @@
 %\usepackage{ngerman} % Alternative zum Babel-Paket oben
 \usepackage{mathptmx} % Times-Roman-Schrift (auch für mathematische Formeln)
 
+% fonts
+\fontfamily{ptm}\selectfont
+
 % Zum Setzen von URLs
 \usepackage{color}
 \definecolor{darkred}{rgb}{.25,0,0}
@@ -53,62 +56,68 @@
 %______________________________________________________________________
 
 \begin{document}
+\selectlanguage{english}
 
 \pagestyle{empty} % Vorerst keine Seitenzahlen
 \pagenumbering{alph} % Unsichtbare alphabetische Nummerierung
 
 \begin{center}
-\textsc{Ludwig-Maximilians-Universität München}\\
-Department ``Institut für Informatik''\\
-Lehr- und Forschungseinheit Medieninformatik\\
-Prof.\ Dr.\ Heinrich Hußmann
 
-\vspace{5cm}
-{\large\textbf{Bachelorarbeit}}\vspace{.5cm}
+\vspace*{7cm}
+{\Large Bachelor Thesis}
+\vspace{.4cm}
 
-{\LARGE \LaTeX-Vorlage für Projekt- und Diplomarbeiten}\vspace{1cm}
+{\LARGE TODO: TITLE THAT SAYS MORE THAN "TITLE"}
+\vspace{1.8cm}
 
-{\large Felix Hamann}\\\href{mailto:kontakt@felixhamann.de}{kontakt@felixhamann.de}
+by
+\bigskip
 
+{\Large Felix Hamann}\\
+\smallskip
+
+Born on September 21st, 1989 in Grafing bei München\\
+Matriculation number: 10809408
+\vspace{4cm}
+
+{\Large Ludwig-Maximilians-Universität München}
+\smallskip
+
+Department of Computer Science\\
+Institute for Software and Multimedia Technology\\
+Prof. Dr. Heinrich Hußmann
 \end{center}
 \vfill
 
 \begin{tabular}{ll}
-Bearbeitungszeitraum: & 1. 5. 2018 bis 31. 8. 2018\\
-Betreuer: & Mohammed Khamis\\
-Externer Betreuer: & Dr. Steffen Jost\\
-Verantw. Hochschullehrer: & Prof. Hußmann
+Supervised by: & Mohammed Khamis\\
+& Dr. Steffen Jost\\
+Submitted on: & mmmm dd, yyyy
 \end{tabular}
 %______________________________________________________________________
 
 \clearpage
-\section*{Zusammenfassung}
-
-Ziel dieser Bachelorarbeit war die Implementierung eines neuen UniWorX für die Studenten der LMU
-
-\selectlanguage{english}
 \section*{Abstract}
 
-See above. Use Google Translator.
+rework uniworx...
 
-\selectlanguage{ngerman}
 \clearpage
-\section*{Aufgabenstellung}
+\section*{Scope}
 
 (Kopie der Original-Aufgabenstellung)
 
 TODO: Jost fragen? Khamis fragen?
 
+\clearpage
+\section*{Confirmation}
+I confirm that I independently prepared the thesis and that I used
+only the references and auxiliary means indicated in the thesis.
+\vspace{2cm}
 
-\vfill % Sorgt dafür, dass das Folgende an das Seitenende rutscht
+\noindent\makebox[8cm]{\dotfill}
+\vspace{.7cm}
 
-\noindent Ich erkläre hiermit, dass ich die vorliegende Arbeit
-selbstständig angefertigt, alle Zitate als solche kenntlich gemacht
-sowie alle benutzten Quellen und Hilfsmittel angegeben habe.
-
-\bigskip\noindent München, \today
-
-\vspace{4ex}\noindent\makebox[7cm]{\dotfill}
+\noindent Munich, \today
 
 %______________________________________________________________________
 
@@ -135,7 +144,7 @@ sowie alle benutzten Quellen und Hilfsmittel angegeben habe.
 \fancyhead[LO,RE]{\leftmark}
 \fancyfoot[LE,RO]{\thepage}
 
-\section{Einleitung}
+\section{Introduction}
 
 Die Ludwig-Maximilians-Universität München benutzt seit mehreren Jahren (Wie lange?) eine Online-Plattform namens Uniworx um die Abgaben, Klausuranmeldungen und Übungsgruppen der (Medien-/Wirtschaft-)Informatik-Studenten zu organisieren.
 
@@ -153,7 +162,7 @@ Es soll einerseits auf die technischen Aspekte der neuen Version "ReWorX", als a
 
 
 \cleardoublepage % Neue rechte Seite anfangen
-\section{Mobile First}
+\section{America First? Mobile First!}
 
 90\% of the orders AliBaba\footnote{chinese online discount retail} received during their 2018 chinese-new-year promotion campaign where placed from mobile devices (CITE!).
 This is still far from the internet usage on mobile-devices in central europe, where (according to NAMEDROPPING) around 60\% of all page views came from users on mobile devices (phones / tablets).
@@ -182,49 +191,6 @@ Zwei Teile blabla
   \caption{Bildunterschrift}
   \label{fig:beispielbild}
 \end{figure}
-
-
-Siehe Abbildung \ref{fig:beispielbild} oder einschlägige Literatur, z.B.
-\cite{sengel-usability}.
-
-\bigskip % Größerer Abstand zum vorherigen Absatz
-\textbf{Hinweis:} Die Verweise im generierten PDF (HTTP-Links, Verweise auf Kapitel oder Bilder) sind leicht eingefärbt. Wer das nicht will, z.B. weil es die Druckkosten erhöht, kann am Anfang des Dokuments \texttt{linkcolor} usw. auf ``black'' setzen.
-
-
-\subsection{Medien}
-
-\begin{figure}
-  \begin{center}\LARGE [BILD]\end{center}
-  \caption{Noch ein Bild}
-  \label{fig:beispielbild2}
-\end{figure}
-
-\begin{itemize}
-  \item Gesellschaftliche Medien
-  \item Technische Medien
-\end{itemize}
-
-
-\subsection{Informatik}
-
-
-\subsection{Medieninformatik}
-
-\begin{description}
-  \item[Medienwirkung:] Ein Spezialfach der Kommunikationswissenschaft. Für das erfolgreiche Studium des Anwendungsfachs Mediengestaltung ist eine künstlerische Begabung erforderlich.
-  \item[Medienwirtschaft:] Ein Spezialfach der Betriebswirtschaftslehre
-  \item[Mediengestaltung:] Ein Spezialfach der Kunstwissenschaft
-\end{description}
-
-\subsubsection{Was Sie schon immer wissen wollten, aber nie zu fragen
-  wagten}
-
-\paragraph{Überschrift}
-Diese Überschrift erscheint fettgedruckt am Anfang des Absatzes.
-
-\subsubsection{Was Sie nicht wissen wollten}
-
-Text text textextext\footnote{Oder so ähnlich}.
 
 %\_____________________________________________________________________
 
