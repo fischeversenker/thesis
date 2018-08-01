@@ -23,6 +23,8 @@
 
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
+\usepackage{subcaption}
+
 % listings
 \usepackage[dvipsnames]{xcolor}
 \usepackage{color}
@@ -267,7 +269,7 @@ In \emph{Yesod} kommt neben Haskell auch die Sprachen-Familie der \emph{Shakespe
 Der gemeinsame Vorteil dieser Shakespearean Template Languages (von nun an \emph{STL}) ist die Möglichkeit der Interpolation beim Compilieren der Haskell-Applikation. In allen vier Sprachen können somit Haskell-Werte des entsprechend aktiven Yesod-Handlers \footnote{Jener Code einer Yesod-Applikation der das Ausspielen einer bestimmten Route zur Aufgabe hat} \emph{interpoliert} werden. Dadurch ist es möglich Werte und Eigenschaften des Handlers / der Handler an das entsprechende Template zu übergeben und es wird somit ermöglicht generische Komponenten zu erstellen, die mit unterschiedlichem Inhalt an diversen Stellen auf der Webseite erscheinen können. Auf die vier Sprachen soll im Folgenden detaillierter eingegangen werden.
 
 \begin{description}
-    \item[Hamlet] \hfill \\ Eine erweiterte und außerdem vereinfachte Markup-Sprache die zu HTML compiliert wird. Das Markup erinnert an jenes der weit verbreiteten \emph{Template-Engine} \footnote{Software die Quellcode zu HTML auswertet} Pug (ehemals Jade) \footnote{\url{https://pugjs.org}}, verwendet jedoch statt schließenden HTML-Tags Einrückung zum Verschachteln und Abgrenzen von Elementen.
+    \item[Hamlet] \hfill \\ Eine erweiterte und außerdem vereinfachte Markup-Sprache die zu HTML kompiliert. Das Markup erinnert an jenes der weit verbreiteten \emph{Template-Engine} \footnote{Software die Quellcode zu HTML auswertet} Pug (ehemals Jade) \footnote{\url{https://pugjs.org}}, verwendet jedoch statt schließenden HTML-Tags Einrückung zum Verschachteln und Abgrenzen von Elementen.
     \item[Julius] \hfill \\ Pures JavaScript das um die Interpolations-Möglichkeiten von Yesod erweitert wurde.
     \item[Cassius] \hfill \\ Eine erweiterte Variante von CSS \footnote{Cascading Style Sheets -- die allgemeine Syntax für Style-Definitionen im Internet} die stark an SCSS \footnote{Syntactically Awesome Style Sheets, \url{https://sass-lang.com/}} erinnert.
     \item[Lucius] \hfill \\ Wird beim compilieren genauso behandelt wie Cassius, mit dem einzigen Unterschied, dass statt geschweiften Klammern Einrückung für die Begrenzung von Blöcken dient. Sowohl Cassius als auch Lucius unterstützen Verschachtelung (\emph{Nesting}) von Style-Definitionen.
@@ -297,8 +299,33 @@ Das bestehende System UniWorX ist in keiner Hinsicht für Geräte mit kleinen Bi
 
 \begin{figure}
     \centering
-    \includegraphics[width=7cm]{uniworx_mobile.png}
-    \caption{UniWorX, Übungsblätter-Übersicht, Iphone 6}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=67mm]{m_uniworx_sheets.jpg}
+      \caption{UniWorX}
+      \label{fig:sub1}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=67mm]{m_uni2work_sheets_green.jpg}
+      \caption{Uni2work}
+      \label{fig:sub2}
+    \end{subfigure}
+    \caption{Vergleich beider Systeme auf einem Iphone 6/7}
+    \label{fig:mobile_comparison}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=67mm]{m_uni2work_sheets_blue.jpg}
+    \caption{Uni2work, Übungsblätter-Übersicht auf Iphone 6}
+    \label{fig:uniworx_mobile}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=67mm]{m_uni2work_courses_green.jpg}
+    \caption{Uni2work, Übungsblätter-Übersicht auf Iphone 6}
     \label{fig:uniworx_mobile}
 \end{figure}
 
@@ -360,7 +387,7 @@ Der Link zu dem Online-Fragebogen wurde auf einem Übungsblatt des Kurses "`Prog
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{boxplot_age_2.png}
+    \includegraphics[width=\textwidth]{boxplot_age.png}
     \caption{Alter der Teilnehmer als Boxplot.}
     \label{fig:participants_age_bp}
 \end{figure}
@@ -514,11 +541,10 @@ Bangor et al. versuchten nach langjährigem Einsatz des SUS die resultierenden W
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{likert_comparison.png}
+    \includegraphics[width=\textwidth]{likert_comparison.jpg}
     \caption{Vergleich der SUS-Reaktionen}
     \label{fig:results_sus}
 \end{figure}
-
 
 \subsection{Likert scale questions} \label{sec:results_likert}
 
